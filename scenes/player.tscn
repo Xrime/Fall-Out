@@ -2,10 +2,9 @@
 
 [ext_resource type="Script" uid="uid://biqbci25ivvtr" path="res://script/player.gd" id="1_3vyb7"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_u8vuu"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3vyb7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
-size = Vector2(17, 15)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_3vyb7")
@@ -13,8 +12,16 @@ script = ExtResource("1_3vyb7")
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 position = Vector2(8.25, 6.25)
 scale = Vector2(17.5, 13.5)
-mesh = SubResource("BoxMesh_u8vuu")
+mesh = SubResource("CapsuleMesh_3vyb7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7.5, 6.5)
-shape = SubResource("RectangleShape2D_3vyb7")
+position = Vector2(8, 6)
+shape = SubResource("CapsuleShape2D_g2els")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+limit_left = -1280
+limit_top = -720
+limit_right = 1280
+limit_bottom = 720
+limit_smoothed = true

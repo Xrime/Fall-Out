@@ -585,6 +585,7 @@ sources/0 = SubResource("TileSetAtlasSource_qv23g")
 [node name="Main_1" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(1.11, 1.11)
 format = 2
 
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMap"]
