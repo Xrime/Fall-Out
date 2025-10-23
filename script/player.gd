@@ -7,6 +7,9 @@ var start_falling : float
 var is_falling = false
 var falling_distance : float
 var gameover_scene : PackedScene = preload("res://scenes/game_over.tscn")
+const acceleration =0.1
+const deceleration =0.1
+
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("Right"):
