@@ -23,6 +23,11 @@ window/size/viewport_height=720
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
+[global_group]
+
+rope=""
+player=""
+
 [input]
 
 Right={

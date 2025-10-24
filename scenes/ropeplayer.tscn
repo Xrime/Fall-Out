@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bi6uev5tjqhrl"]
+
+[ext_resource type="Script" uid="uid://b4pbkegi1o5kx" path="res://script/ropeplayer.gd" id="1_37chp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2ja15"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_37chp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjqvh"]
+
+[node name="ropeplayer" type="CharacterBody2D"]
+script = ExtResource("1_37chp")
+
+[node name="FlipNode" type="Node2D" parent="."]
+
+[node name="player" type="MeshInstance2D" parent="FlipNode"]
+position = Vector2(1, 1)
+scale = Vector2(16.5, 22.5)
+mesh = SubResource("BoxMesh_2ja15")
+
+[node name="ropeRayCast2D" type="RayCast2D" parent="FlipNode"]
+
+[node name="rope" type="MeshInstance2D" parent="FlipNode"]
+position = Vector2(79.75, 1)
+scale = Vector2(160.5, 2)
+mesh = SubResource("CylinderMesh_37chp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vjqvh")
