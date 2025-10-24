@@ -49,16 +49,7 @@ func _physics_process(delta: float) -> void:
 					Global.fragile_tilemaps.erase(collider)
 					#Global.useime = 3 
 	last_hit=current_hit
-#staticbody coll end
-			
-	#var collision = move_and_collide(velocity*delta)
-	#if collision:
-		#print("acceleration")
-		#if collision.get_collider()==Global.fragile_tilemap:
-			#Global.useime-=1
-			#print("collide" , collision.get_collider()) 
-#falling 
+
 	if falling_distance >= 100:
 		get_tree().set_meta("level_scene", get_tree().current_scene.scene_file_path)
 		get_tree().change_scene_to_packed(gameover_scene)
-#turing off difficulties to reduce testing time

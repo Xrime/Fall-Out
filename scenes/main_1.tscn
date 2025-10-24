@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cedttg5d1gbix"]
+[gd_scene load_steps=13 format=4 uid="uid://cedttg5d1gbix"]
 
 [ext_resource type="Texture2D" uid="uid://bda7ndar7kv0s" path="res://Assets/castle_stones/castle_stones.png" id="1_stv5y"]
 [ext_resource type="Script" uid="uid://c2iyhq4ueorna" path="res://scenes/main_1.gd" id="1_umhrx"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b7m1kvy4y0gah" path="res://scenes/landing_paddle.tscn" id="3_hx442"]
 [ext_resource type="PackedScene" uid="uid://bb21ayp1a7hb" path="res://scenes/coin.tscn" id="5_6wv7r"]
 [ext_resource type="PackedScene" uid="uid://novcyasc3r1j" path="res://scenes/bouncyplatform.tscn" id="6_m23dm"]
+[ext_resource type="PackedScene" uid="uid://ca3kowwls5ugl" path="res://scenes/power_up.tscn" id="7_ayvor"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qv23g"]
 texture = ExtResource("1_stv5y")
@@ -774,8 +775,12 @@ shape = SubResource("RectangleShape2D_m23dm")
 
 [node name="coin" parent="." instance=ExtResource("5_6wv7r")]
 position = Vector2(818, 99)
+respawn_points = Array[Vector2]([Vector2(200, 90)])
 
 [node name="bouncyplatform" parent="." instance=ExtResource("6_m23dm")]
 position = Vector2(850, 130)
+
+[node name="Slow_fall_power_up" parent="." instance=ExtResource("7_ayvor")]
+position = Vector2(462, 64)
 
 [connection signal="body_entered" from="exitarea" to="." method="_on_exitarea_body_entered"]
