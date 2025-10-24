@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7m1kvy4y0gah"]
+
+[ext_resource type="Script" uid="uid://cujtjswkgjfuv" path="res://area_2d.gd" id="1_2vhda"]
+[ext_resource type="Texture2D" uid="uid://bb5rtsqf0wjim" path="res://Assets/Paddles.png" id="2_vjbm1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hiiw0"]
+size = Vector2(44, 9)
+
+[node name="landing paddle" type="CharacterBody2D"]
+script = ExtResource("1_2vhda")
+sprite_frame = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -1.5)
+shape = SubResource("RectangleShape2D_hiiw0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, 5)
+scale = Vector2(1, 1.72222)
+texture = ExtResource("2_vjbm1")
+hframes = 4
+vframes = 7
+frame = 6
