@@ -14,4 +14,3 @@ func _process(delta: float) -> void:
 		var collider =collision.get_collider()
 		if collider:
 			direction*=-1
-	
