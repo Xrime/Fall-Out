@@ -1,4 +1,5 @@
 extends Node2D
+@onready var label = $player/RichTextLabel
 @export var storyscene :PackedScene
 func _ready() -> void:
 	var fragile_list =[]
@@ -10,7 +11,8 @@ func _ready() -> void:
 func _on_exitarea_body_entered(body: Node2D) -> void:
 	print("Enter")
 	get_tree().change_scene_to_packed(storyscene)
-#func _process(delta: float) -> void:
+func _process(delta: float) -> void:
+	label.text="Coin :"+ str(Global.in_game_coin_count)
 	#if Global.useime==0:
 		#$StaticBody2D.queue_free()
 		

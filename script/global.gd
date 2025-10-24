@@ -4,12 +4,14 @@ var usetime = 3
 var tile_position
 
 var coins = 0
+var in_game_coin_count = 0
 
 func _ready() -> void:
 	load_coins()
 	
 func  add_coin(amount : int):
 	coins+=amount
+	in_game_coin_count+=amount
 	save_coins()
 	
 func save_coins():

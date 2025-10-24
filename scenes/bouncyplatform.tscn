@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://novcyasc3r1j"]
+
+[ext_resource type="Script" uid="uid://0qhgnp1tg3s6" path="res://script/bouncyplatform.gd" id="1_vyyub"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1e2js"]
+size = Vector2(27, 8)
+
+[node name="bouncyplatform" type="Area2D"]
+script = ExtResource("1_vyyub")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.5, 6)
+shape = SubResource("RectangleShape2D_1e2js")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
