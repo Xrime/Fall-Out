@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://bsn2ln3o3yhfg"]
+[gd_scene load_steps=2 format=3 uid="uid://bsn2ln3o3yhfg"]
+
+[ext_resource type="Script" uid="uid://barkviod6moal" path="res://scenes/main_menu.gd" id="1_l6cm7"]
 
 [node name="main menu" type="Node2D"]
+script = ExtResource("1_l6cm7")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -60,3 +63,10 @@ text = "UnderWater"
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Destructive Zone"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+bbcode_enabled = true
+text = "coin"

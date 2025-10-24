@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://cedttg5d1gbix"]
+[gd_scene load_steps=11 format=4 uid="uid://cedttg5d1gbix"]
 
 [ext_resource type="Texture2D" uid="uid://bda7ndar7kv0s" path="res://Assets/castle_stones/castle_stones.png" id="1_stv5y"]
 [ext_resource type="Script" uid="uid://c2iyhq4ueorna" path="res://scenes/main_1.gd" id="1_umhrx"]
 [ext_resource type="PackedScene" uid="uid://dhot72qtnl8t4" path="res://scenes/player.tscn" id="2_qv23g"]
 [ext_resource type="PackedScene" uid="uid://b7m1kvy4y0gah" path="res://scenes/landing_paddle.tscn" id="3_hx442"]
+[ext_resource type="PackedScene" uid="uid://bb21ayp1a7hb" path="res://scenes/coin.tscn" id="5_6wv7r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qv23g"]
 texture = ExtResource("1_stv5y")
@@ -605,7 +606,7 @@ tile_set = SubResource("TileSet_hx442")
 collision_visibility_mode = 2
 
 [node name="player" parent="." instance=ExtResource("2_qv23g")]
-position = Vector2(46, 41)
+position = Vector2(689, 99)
 jump_force = -300
 
 [node name="landing paddle" parent="." instance=ExtResource("3_hx442")]
@@ -668,7 +669,7 @@ position = Vector2(6, 39)
 shape = SubResource("RectangleShape2D_m23dm")
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="."]
-position = Vector2(673, 372)
+position = Vector2(682, 378)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D5"]
 position = Vector2(6, 40)
@@ -679,20 +680,8 @@ mesh = SubResource("BoxMesh_umhrx")
 position = Vector2(6, 39)
 shape = SubResource("RectangleShape2D_m23dm")
 
-[node name="StaticBody2D6" type="StaticBody2D" parent="."]
-position = Vector2(638, 351)
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D6"]
-position = Vector2(6, 40)
-scale = Vector2(18, 18)
-mesh = SubResource("BoxMesh_umhrx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
-position = Vector2(6, 39)
-shape = SubResource("RectangleShape2D_m23dm")
-
 [node name="StaticBody2D7" type="StaticBody2D" parent="."]
-position = Vector2(672, 300)
+position = Vector2(650, 316)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D7"]
 position = Vector2(6, 40)
@@ -774,5 +763,8 @@ mesh = SubResource("BoxMesh_umhrx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D13"]
 position = Vector2(6, 39)
 shape = SubResource("RectangleShape2D_m23dm")
+
+[node name="coin" parent="." instance=ExtResource("5_6wv7r")]
+position = Vector2(818, 99)
 
 [connection signal="body_entered" from="exitarea" to="." method="_on_exitarea_body_entered"]

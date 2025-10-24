@@ -8,6 +8,7 @@ func _ready() -> void:
 			fragile_list.append(child)
 	Global.fragile_tilemaps =fragile_list
 func _on_exitarea_body_entered(body: Node2D) -> void:
+	print("Enter")
 	get_tree().change_scene_to_packed(storyscene)
 #func _process(delta: float) -> void:
 	#if Global.useime==0:
