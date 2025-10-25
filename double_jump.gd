@@ -10,7 +10,7 @@ func _ready() -> void:
 	
 func _on_body_entered(body: Node2D) -> void:
 	if body.name=="player":
-		Global.using_slow_power_up = true
+		Global.using_double_jump = true
 		Global.add_power_ups("double_jump" ,1)
 		queue_free()
 	print(Global.power_ups)			
