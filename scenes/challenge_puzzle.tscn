@@ -1,6 +1,11 @@
-[gd_scene format=3 uid="uid://bdvk5ldbwsc4k"]
+[gd_scene load_steps=3 format=3 uid="uid://bdvk5ldbwsc4k"]
 
-[node name="challenge puzzle" type="Node2D"]
+[ext_resource type="Script" uid="uid://cmxpsbtqxtkfu" path="res://scenes/story_puzzle.gd" id="1_mbv7c"]
+[ext_resource type="PackedScene" uid="uid://dilu575g7o0lv" path="res://scenes/puzz_story_l_1.tscn" id="2_3x4fk"]
+
+[node name="story puzzle" type="Node2D"]
+script = ExtResource("1_mbv7c")
+scene = ExtResource("2_3x4fk")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -58,3 +63,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
 text = "Level 5"
+
+[connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button5" to="." method="_on_button_5_pressed"]

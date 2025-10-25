@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://ymturwdmvgvf"]
+
+[ext_resource type="Script" uid="uid://wticg08kx7bu" path="res://script/oxygen.gd" id="1_1wtyp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a6us8"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_j7my0"]
+
+[sub_resource type="Texture2DRD" id="Texture2DRD_ig136"]
+
+[node name="oxygen" type="Area2D"]
+script = ExtResource("1_1wtyp")
+respawn_points = Array[Vector2]([Vector2(200, 90)])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_a6us8")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(18.771, 13.75)
+mesh = SubResource("SphereMesh_j7my0")
+texture = SubResource("Texture2DRD_ig136")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

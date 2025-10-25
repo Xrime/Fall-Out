@@ -45,6 +45,7 @@ text = "Challenge Mode
 "
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
 offset_left = 1125.0
 offset_top = 22.0
 offset_right = 1264.0

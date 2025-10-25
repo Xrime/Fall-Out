@@ -16,10 +16,24 @@ var using_slow_power_up = false
 var using_double_jump = false
 var using_shield = false
 
+#mode specified
+var Puzzle_mode = false
+var Spining_mode =false
+var space_mode  = false
+var underwater_mode = false
+var Exploding_platform = false
+var is_oxygen = false
+
+
+var oxygen = 100
+
 
 func _ready() -> void:
 	load_coins()
 	load_power_ups()
+	if space_mode:
+		gravity =200
+		
 
 func  add_coin(amount : int):
 	coins+=amount

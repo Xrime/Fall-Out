@@ -21,6 +21,7 @@ var max_jump :=0.0
 
 
 func _physics_process(delta: float) -> void:
+	#This my motion part
 	gravity = Global.gravity
 	speed = Global.speed
 	jump_force = Global.jump_force
@@ -33,6 +34,7 @@ func _physics_process(delta: float) -> void:
 	else :
 		jump_count=0.0
 	
+	#power part
 	if Global.using_double_jump:
 		max_jump=2
 		is_using = true
@@ -41,6 +43,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Up") and jump_count< max_jump:
 		velocity.y =jump_force
 		jump_count +=1
+	# power time
 	if is_using:
 		use_time += delta
 		if use_time >= 5.0:
@@ -51,6 +54,7 @@ func _physics_process(delta: float) -> void:
 			use_time = 0.0
 			print("power up expire")
 			
+	#Power part	
 	if Global.using_slow_power_up: 
 		is_using=true
 		gravity=500
@@ -63,7 +67,7 @@ func _physics_process(delta: float) -> void:
 				use_time=0.0
 				gravity=980
 				print("Power up off")
-		
+	#motion 
 	if not is_on_floor():
 		if not is_falling:
 			start_falling = position.y
@@ -74,7 +78,8 @@ func _physics_process(delta: float) -> void:
 			print(falling_distance)
 			is_falling = false
 	move_and_slide()
-#staticbody coll
+	
+#staticbody coll of 3 tile
 	var current_hit = null
 	for i in range(get_slide_collision_count()):
 		var collision = get_slide_collision(i)
@@ -92,6 +97,7 @@ func _physics_process(delta: float) -> void:
 					
 	last_hit=current_hit
 	
+	#power up
 	if Global.using_shield:
 		if falling_distance >= 1000:
 			get_tree().set_meta("level_scene", get_tree().current_scene.scene_file_path)
@@ -100,5 +106,9 @@ func _physics_process(delta: float) -> void:
 		if falling_distance >= 100:
 			get_tree().set_meta("level_scene", get_tree().current_scene.scene_file_path)
 			get_tree().change_scene_to_packed(gameover_scene)
-
 	
+	if Global.space_mode and Global.is_oxygen:
+		Global.oxygen -= delta*2
+		if Global.oxygen <= 0:
+			get_tree().set_meta("level_scene", get_tree().current_scene.scene_file_path)
+			get_tree().change_scene_to_packed(gameover_scene)
