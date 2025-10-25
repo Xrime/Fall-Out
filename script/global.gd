@@ -2,7 +2,7 @@ extends Node
 
 var gravity = 980
 var speed := 200
-var jump_force := -200
+var jump_force := -400
 
 var fragile_tilemaps = []
 var usetime = 3

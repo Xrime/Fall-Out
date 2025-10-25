@@ -92,13 +92,13 @@ func _physics_process(delta: float) -> void:
 					
 	last_hit=current_hit
 	
-	#if Global.using_shield:
-		#if falling_distance >= 1000:
-			#get_tree().set_meta("level_scene", get_tree().current_scene.scene_file_path)
-			#get_tree().change_scene_to_packed(gameover_scene)
-	#else :
-		#if falling_distance >= 100:
-			#get_tree().set_meta("level_scene", get_tree().current_scene.scene_file_path)
-			#get_tree().change_scene_to_packed(gameover_scene)
+	if Global.using_shield:
+		if falling_distance >= 1000:
+			get_tree().set_meta("level_scene", get_tree().current_scene.scene_file_path)
+			get_tree().change_scene_to_packed(gameover_scene)
+	else :
+		if falling_distance >= 100:
+			get_tree().set_meta("level_scene", get_tree().current_scene.scene_file_path)
+			get_tree().change_scene_to_packed(gameover_scene)
 
 	

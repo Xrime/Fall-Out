@@ -777,7 +777,8 @@ shape = SubResource("RectangleShape2D_m23dm")
 
 [node name="coin" parent="." instance=ExtResource("5_6wv7r")]
 position = Vector2(818, 99)
-respawn_points = Array[Vector2]([Vector2(200, 90)])
+points = 3
+respawn_points = Array[Vector2]([Vector2(200, 90), Vector2(1000, 200), Vector2(800, 149), Vector2(782, 90), Vector2(120, 130)])
 
 [node name="bouncyplatform" parent="." instance=ExtResource("6_m23dm")]
 position = Vector2(850, 130)
@@ -791,7 +792,7 @@ position = Vector2(354, 680)
 respawn_points = Array[Vector2]([Vector2(350, 690)])
 
 [node name="Gravity_zone" parent="." instance=ExtResource("10_ikp2r")]
-position = Vector2(362, 482)
+position = Vector2(323, 268)
 
 [node name="shield" parent="." instance=ExtResource("9_ctogb")]
 respawn_points = Array[Vector2]([Vector2(200, 80)])

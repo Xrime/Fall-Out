@@ -13,5 +13,3 @@ func _on_exitarea_body_entered(body: Node2D) -> void:
 	get_tree().change_scene_to_packed(storyscene)
 func _process(delta: float) -> void:
 	label.text="Coin :"+ str(Global.in_game_coin_count)
-
-		
