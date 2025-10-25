@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhot72qtnl8t4"]
+[gd_scene load_steps=5 format=3 uid="uid://dhot72qtnl8t4"]
 
 [ext_resource type="Script" uid="uid://biqbci25ivvtr" path="res://script/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://b3algjrlt5ch0" path="res://scenes/camera_2d.gd" id="2_g2els"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3vyb7"]
 
@@ -25,3 +26,4 @@ limit_top = -720
 limit_right = 1280
 limit_bottom = 720
 limit_smoothed = true
+script = ExtResource("2_g2els")

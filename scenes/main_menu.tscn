@@ -1,9 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsn2ln3o3yhfg"]
+[gd_scene load_steps=7 format=3 uid="uid://bsn2ln3o3yhfg"]
 
 [ext_resource type="Script" uid="uid://barkviod6moal" path="res://scenes/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="PackedScene" uid="uid://c14xtibtqcwnn" path="res://scenes/puzzle_level.tscn" id="2_rtw2f"]
+[ext_resource type="PackedScene" uid="uid://b75bhvub0cjkr" path="res://scenes/rotating_world.tscn" id="3_oa1go"]
+[ext_resource type="PackedScene" uid="uid://b3n7xr58rgwa" path="res://scenes/space_level.tscn" id="4_tbmy8"]
+[ext_resource type="PackedScene" uid="uid://2xclp60i4gbk" path="res://scenes/underwater_level.tscn" id="5_jk1qb"]
+[ext_resource type="PackedScene" uid="uid://crx74cclc6vd5" path="res://scenes/destruction_mode.tscn" id="6_5dd4i"]
 
 [node name="main menu" type="Node2D"]
 script = ExtResource("1_l6cm7")
+scene = ExtResource("2_rtw2f")
+scene1 = ExtResource("3_oa1go")
+scene2 = ExtResource("4_tbmy8")
+scene3 = ExtResource("5_jk1qb")
+scene4 = ExtResource("6_5dd4i")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -75,3 +85,9 @@ theme_override_font_sizes/italics_font_size = 10
 theme_override_font_sizes/mono_font_size = 3
 bbcode_enabled = true
 text = "coin"
+
+[connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button6" to="." method="_on_button_6_pressed"]
