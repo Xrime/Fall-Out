@@ -609,6 +609,8 @@ collision_visibility_mode = 2
 
 [node name="player" parent="." instance=ExtResource("2_qv23g")]
 position = Vector2(167, 89)
+gravity = 980
+speed = 200
 jump_force = -300
 
 [node name="RichTextLabel" type="RichTextLabel" parent="player"]
@@ -782,5 +784,6 @@ position = Vector2(850, 130)
 
 [node name="Slow_fall_power_up" parent="." instance=ExtResource("7_ayvor")]
 position = Vector2(462, 64)
+respawn_points = Array[Vector2]([Vector2(220, 90)])
 
 [connection signal="body_entered" from="exitarea" to="." method="_on_exitarea_body_entered"]

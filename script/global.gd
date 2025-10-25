@@ -7,6 +7,8 @@ var power_ups: Dictionary ={}
 var in_game_power_up = []
 var coins = 0
 var in_game_coin_count = 0
+var using_slow_power_up = false
+var using_double_jump = false
 
 func _ready() -> void:
 	load_coins()

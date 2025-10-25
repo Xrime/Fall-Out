@@ -10,6 +10,8 @@ var gameover_scene : PackedScene = preload("res://scenes/game_over.tscn")
 const acceleration =0.1
 const deceleration =0.1
 var last_hit =null
+var use_time =0
+var is_using=false
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("Right"):
@@ -21,7 +23,19 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("Up") and is_on_floor():
 		velocity.y = jump_force
-
+	if Global.using_slow_power_up: 
+		is_using=true
+		gravity=500
+		print("Using power up")
+		if is_using:
+			use_time+=delta	
+			if use_time >= 5.0:
+				is_using=false
+				Global.using_slow_power_up=false
+				use_time=0.0
+				gravity=980
+				print("Power up off")
+		
 	if not is_on_floor():
 		if not is_falling:
 			start_falling = position.y
