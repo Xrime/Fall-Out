@@ -9,6 +9,7 @@ var coins = 0
 var in_game_coin_count = 0
 var using_slow_power_up = false
 var using_double_jump = false
+var using_shield = false
 
 func _ready() -> void:
 	load_coins()

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cufyfjgcy6b43"]
+
+[ext_resource type="Script" uid="uid://bi55jdfh3yjcx" path="res://script/shield.gd" id="1_vtru8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a6us8"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_j7my0"]
+
+[sub_resource type="Texture2DRD" id="Texture2DRD_ig136"]
+
+[node name="shield" type="Area2D"]
+script = ExtResource("1_vtru8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_a6us8")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(18.771, 13.75)
+mesh = SubResource("SphereMesh_j7my0")
+texture = SubResource("Texture2DRD_ig136")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

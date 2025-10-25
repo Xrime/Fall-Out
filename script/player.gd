@@ -38,31 +38,15 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Up") and jump_count< max_jump:
 		velocity.y =jump_force
 		jump_count +=1
-		print("jump:", jump_count)
 	if is_using:
 		use_time += delta
 		if use_time >= 5.0:
 			is_using = false
 			Global.using_double_jump =false
 			Global.using_slow_power_up = false
+			Global.using_shield = false
 			use_time = 0.0
 			print("power up expire")
-		#if jump_count<max_jump:
-			#velocity.y= jump_force
-			#jump_count+=1
-				#print("double jump")
-			#if is_using:
-				#use_time +=delta
-				#if use_time >= 5.0:
-					#is_using =false
-					#Global.using_double_jump =false
-					#use_time =0.0
-		#else :
-			#max_jump=1
-			#if jump_count<max_jump:
-				#velocity.y = jump_force
-				#jump_count+=1
-			
 			
 	if Global.using_slow_power_up: 
 		is_using=true
@@ -76,11 +60,6 @@ func _physics_process(delta: float) -> void:
 				use_time=0.0
 				gravity=980
 				print("Power up off")
-				
-	
-		
-		
-		
 		
 	if not is_on_floor():
 		if not is_falling:
@@ -107,9 +86,16 @@ func _physics_process(delta: float) -> void:
 				if usetime <= 0:
 					collider.queue_free()
 					Global.fragile_tilemaps.erase(collider)
-					#Global.useime = 3 
+					
 	last_hit=current_hit
+	
+	if Global.using_shield:
+		if falling_distance >= 1000:
+			get_tree().set_meta("level_scene", get_tree().current_scene.scene_file_path)
+			get_tree().change_scene_to_packed(gameover_scene)
+	else :
+		if falling_distance >= 100:
+			get_tree().set_meta("level_scene", get_tree().current_scene.scene_file_path)
+			get_tree().change_scene_to_packed(gameover_scene)
 
-	#if falling_distance >= 100:
-		#get_tree().set_meta("level_scene", get_tree().current_scene.scene_file_path)
-		#get_tree().change_scene_to_packed(gameover_scene)
+	

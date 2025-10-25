@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cedttg5d1gbix"]
+[gd_scene load_steps=15 format=4 uid="uid://cedttg5d1gbix"]
 
 [ext_resource type="Texture2D" uid="uid://bda7ndar7kv0s" path="res://Assets/castle_stones/castle_stones.png" id="1_stv5y"]
 [ext_resource type="Script" uid="uid://c2iyhq4ueorna" path="res://scenes/main_1.gd" id="1_umhrx"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://novcyasc3r1j" path="res://scenes/bouncyplatform.tscn" id="6_m23dm"]
 [ext_resource type="PackedScene" uid="uid://ca3kowwls5ugl" path="res://scenes/power_up.tscn" id="7_ayvor"]
 [ext_resource type="PackedScene" uid="uid://bpu3deasayoyj" path="res://scenes/double_jump.tscn" id="8_d3ax8"]
+[ext_resource type="PackedScene" uid="uid://cufyfjgcy6b43" path="res://scenes/shield.tscn" id="9_ctogb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qv23g"]
 texture = ExtResource("1_stv5y")
@@ -788,5 +789,8 @@ respawn_points = Array[Vector2]([Vector2(220, 90)])
 [node name="Double_jump" parent="." instance=ExtResource("8_d3ax8")]
 position = Vector2(354, 680)
 respawn_points = Array[Vector2]([Vector2(350, 690)])
+
+[node name="shield" parent="." instance=ExtResource("9_ctogb")]
+respawn_points = Array[Vector2]([Vector2(200, 80)])
 
 [connection signal="body_entered" from="exitarea" to="." method="_on_exitarea_body_entered"]
