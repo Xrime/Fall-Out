@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@export var gravity = 980
-@export var speed := 200
-@export var jump_force := -200
+var gravity = Global.gravity
+var speed := Global.speed
+var jump_force := Global.jump_force
 
 var start_falling : float
 var is_falling = false
@@ -21,6 +21,9 @@ var max_jump :=0.0
 
 
 func _physics_process(delta: float) -> void:
+	gravity = Global.gravity
+	speed = Global.speed
+	jump_force = Global.jump_force
 	if Input.is_action_pressed("Right"):
 		position.x += speed * delta
 	if Input.is_action_pressed("Left"):
@@ -89,13 +92,13 @@ func _physics_process(delta: float) -> void:
 					
 	last_hit=current_hit
 	
-	if Global.using_shield:
-		if falling_distance >= 1000:
-			get_tree().set_meta("level_scene", get_tree().current_scene.scene_file_path)
-			get_tree().change_scene_to_packed(gameover_scene)
-	else :
-		if falling_distance >= 100:
-			get_tree().set_meta("level_scene", get_tree().current_scene.scene_file_path)
-			get_tree().change_scene_to_packed(gameover_scene)
+	#if Global.using_shield:
+		#if falling_distance >= 1000:
+			#get_tree().set_meta("level_scene", get_tree().current_scene.scene_file_path)
+			#get_tree().change_scene_to_packed(gameover_scene)
+	#else :
+		#if falling_distance >= 100:
+			#get_tree().set_meta("level_scene", get_tree().current_scene.scene_file_path)
+			#get_tree().change_scene_to_packed(gameover_scene)
 
 	

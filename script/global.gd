@@ -1,4 +1,9 @@
 extends Node
+
+var gravity = 980
+var speed := 200
+var jump_force := -200
+
 var fragile_tilemaps = []
 var usetime = 3
 var tile_position
@@ -10,6 +15,7 @@ var in_game_coin_count = 0
 var using_slow_power_up = false
 var using_double_jump = false
 var using_shield = false
+
 
 func _ready() -> void:
 	load_coins()
