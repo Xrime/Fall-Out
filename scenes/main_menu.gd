@@ -16,29 +16,36 @@ func _ready() -> void:
 	label1.text ="Slow motion"+str(Global.slow_motion)
 	label2.text = "Shield" + str(Global.sheild)
 	label4.text = "Double Jump" + str(Global.double_jump)
+	
 
 
 func _on_button_pressed() -> void:
+	get_tree().set_meta("scene1" , get_tree().current_scene.scene_file_path)
 	get_tree().change_scene_to_packed(scene)
+	
 
 
 func _on_button_2_pressed() -> void:
+	get_tree().set_meta("scene1" , get_tree().current_scene.scene_file_path)
 	get_tree().change_scene_to_packed(scene1)
 
 
 func _on_button_3_pressed() -> void:
+	get_tree().set_meta("scene1" , get_tree().current_scene.scene_file_path)
 	get_tree().change_scene_to_packed(scene2)
 
 
 func _on_button_5_pressed() -> void:
+	get_tree().set_meta("scene1" , get_tree().current_scene.scene_file_path)
 	get_tree().change_scene_to_packed(scene3)
 
 
 func _on_button_6_pressed() -> void:
+	get_tree().set_meta("scene1" , get_tree().current_scene.scene_file_path)
 	get_tree().change_scene_to_packed(scene4)
 
 
 func _on_cancel_button_pressed() -> void:
-	var start_menu = get_tree().get_meta("scene1")
+	var start_menu = get_tree().get_meta("scene")
 	if start_menu:
 		get_tree().change_scene_to_file(start_menu)

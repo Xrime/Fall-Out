@@ -65,6 +65,7 @@ theme_override_font_sizes/font_size = 40
 text = "Space World"
 
 [node name="Button5" type="Button" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "UnderWater"

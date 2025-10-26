@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://03nst46yymm5"]
+[gd_scene load_steps=15 format=4 uid="uid://03nst46yymm5"]
 
 [ext_resource type="Script" uid="uid://dnikud0idka37" path="res://puzz_story_2.gd" id="1_7p063"]
 [ext_resource type="Texture2D" uid="uid://ckc3bwodlu4h0" path="res://Assets/Basic RPG tileset.png" id="2_7p063"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://novcyasc3r1j" path="res://scenes/bouncyplatform.tscn" id="6_ace0c"]
 [ext_resource type="PackedScene" uid="uid://ca3kowwls5ugl" path="res://scenes/power_up.tscn" id="7_0u8yg"]
 [ext_resource type="PackedScene" uid="uid://bpu3deasayoyj" path="res://scenes/double_jump.tscn" id="8_vgoau"]
-[ext_resource type="PackedScene" uid="uid://b3r7emxyxqcaw" path="res://scenes/gravity_zone.tscn" id="9_4vs31"]
 [ext_resource type="PackedScene" uid="uid://cufyfjgcy6b43" path="res://scenes/shield.tscn" id="10_m4fie"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7e8yc"]
@@ -268,20 +267,25 @@ collision_visibility_mode = 2
 position = Vector2(30, 15)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="player"]
-visible = false
-offset_left = 124.0
-offset_top = -86.0
-offset_right = 198.0
-offset_bottom = -46.0
+offset_left = 82.0
+offset_top = -84.0
+offset_right = 156.0
+offset_bottom = -44.0
 bbcode_enabled = true
 
 [node name="landing paddle" parent="." instance=ExtResource("4_rxodg")]
-visible = false
-position = Vector2(336, 349)
+position = Vector2(267, 115)
+scale = Vector2(0.5, 0.5)
+
+[node name="landing paddle2" parent="." instance=ExtResource("4_rxodg")]
+position = Vector2(193, 239)
+scale = Vector2(0.5, 0.5)
+
+[node name="landing paddle3" parent="." instance=ExtResource("4_rxodg")]
+position = Vector2(193, 239)
 scale = Vector2(0.5, 0.5)
 
 [node name="exitarea" type="Area2D" parent="."]
-visible = false
 position = Vector2(1262, 689)
 scale = Vector2(2, 2)
 
@@ -589,31 +593,22 @@ position = Vector2(6, 39)
 shape = SubResource("RectangleShape2D_m23dm")
 
 [node name="coin" parent="." instance=ExtResource("5_brstl")]
-visible = false
 position = Vector2(818, 99)
 points = 3
 respawn_points = Array[Vector2]([Vector2(200, 90), Vector2(1000, 200), Vector2(800, 149), Vector2(782, 90), Vector2(120, 130)])
 
 [node name="bouncyplatform" parent="." instance=ExtResource("6_ace0c")]
-visible = false
 position = Vector2(850, 130)
 
 [node name="Slow_fall_power_up" parent="." instance=ExtResource("7_0u8yg")]
-visible = false
 position = Vector2(462, 64)
 respawn_points = Array[Vector2]([Vector2(220, 90)])
 
 [node name="Double_jump" parent="." instance=ExtResource("8_vgoau")]
-visible = false
 position = Vector2(354, 680)
 respawn_points = Array[Vector2]([Vector2(350, 690)])
 
-[node name="Gravity_zone" parent="." instance=ExtResource("9_4vs31")]
-visible = false
-position = Vector2(323, 268)
-
 [node name="shield" parent="." instance=ExtResource("10_m4fie")]
-visible = false
 respawn_points = Array[Vector2]([Vector2(200, 80)])
 
 [connection signal="body_entered" from="exitarea" to="." method="_on_exitarea_body_entered"]

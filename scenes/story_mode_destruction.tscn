@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://cyvap137hui2a"]
+[gd_scene load_steps=3 format=3 uid="uid://cyvap137hui2a"]
+
+[ext_resource type="Script" uid="uid://dtvvl8lq6w6lp" path="res://scenes/story_mode_destruction.gd" id="1_mjoxn"]
+[ext_resource type="Script" uid="uid://q1tvkoecwkwx" path="res://scenes/button.gd" id="2_yxei7"]
 
 [node name="Story mode destruction" type="Node2D"]
+script = ExtResource("1_mjoxn")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -32,29 +36,37 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
-text = "Level 1"
+text = "EndLess Fall Out
+"
+script = ExtResource("2_yxei7")
 
 [node name="Button2" type="Button" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
 text = "Level 2"
 
 [node name="Button3" type="Button" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
 text = "Level 3"
 
 [node name="Button4" type="Button" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
 text = "Level 4"
 
 [node name="Button5" type="Button" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
 text = "Level 5"
+
+[connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_button_pressed"]

@@ -27,6 +27,7 @@ func _physics_process(delta: float) -> void:
 	jump_force = Global.jump_force
 	if Input.is_action_pressed("Right"):
 		position.x += speed * delta
+		$AnimatedSprite2D.play("Jump")
 	if Input.is_action_pressed("Left"):
 		position.x -= speed * delta
 	if not is_on_floor():

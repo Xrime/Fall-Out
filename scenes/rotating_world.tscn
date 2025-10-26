@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b75bhvub0cjkr"]
+[gd_scene load_steps=3 format=3 uid="uid://b75bhvub0cjkr"]
 
 [ext_resource type="Script" uid="uid://yd45salyox1k" path="res://scenes/rotating_world.gd" id="1_3pbvi"]
+[ext_resource type="PackedScene" uid="uid://1l65lpkya2ar" path="res://scenes/story_mode_rotation.tscn" id="2_ek5yl"]
 
 [node name="rotating world" type="Node2D"]
 script = ExtResource("1_3pbvi")
+scene1 = ExtResource("2_ek5yl")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -39,6 +41,7 @@ text = "Story Mode
 "
 
 [node name="Button2" type="Button" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Challenge Mode
@@ -55,3 +58,51 @@ theme_override_font_sizes/italics_font_size = 10
 theme_override_font_sizes/mono_font_size = 3
 bbcode_enabled = true
 text = "coin"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 1125.0
+offset_top = 22.0
+offset_right = 1264.0
+offset_bottom = 79.0
+theme_override_font_sizes/bold_italics_font_size = 10
+theme_override_font_sizes/italics_font_size = 10
+theme_override_font_sizes/mono_font_size = 3
+bbcode_enabled = true
+text = "coin"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 1125.0
+offset_top = 22.0
+offset_right = 1264.0
+offset_bottom = 79.0
+theme_override_font_sizes/bold_italics_font_size = 10
+theme_override_font_sizes/italics_font_size = 10
+theme_override_font_sizes/mono_font_size = 3
+bbcode_enabled = true
+text = "coin"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 1125.0
+offset_top = 22.0
+offset_right = 1264.0
+offset_bottom = 79.0
+theme_override_font_sizes/bold_italics_font_size = 10
+theme_override_font_sizes/italics_font_size = 10
+theme_override_font_sizes/mono_font_size = 3
+bbcode_enabled = true
+text = "coin"
+
+[node name="Button3" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1154.0
+offset_top = 616.0
+offset_right = 1199.0
+offset_bottom = 647.0
+text = "Back"
+
+[connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Control/Button3" to="." method="_on_button_3_pressed"]

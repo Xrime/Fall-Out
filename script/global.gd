@@ -15,9 +15,9 @@ var in_game_coin_count = 0
 var using_slow_power_up = false
 var using_double_jump = false
 var using_shield = false
-var slow_motion = power_ups.get("slow_motion" ,0)
-var sheild = power_ups.get("sheild" , 0)
-var double_jump = power_ups.get("double_jump" ,0)
+var slow_motion = 0
+var sheild = 0
+var double_jump = 0
 
 #mode specified
 var Puzzle_mode = false
@@ -63,8 +63,8 @@ func add_power_ups(power_name : String , amount : int = 1):
 		power_ups[power_name] = amount
 	save_power_ups()
 	
-func use_power_uo(power_name : String):
-	if power_name in power_ups and power_ups[power_ups] > 0:
+func use_power_up(power_name : String):
+	if power_name in power_ups and power_ups[power_name] > 0:
 		power_ups[power_name] -= 1
 		save_power_ups()
 		return true
@@ -74,10 +74,13 @@ func load_power_ups():
 	if FileAccess.file_exists("user://power_up_data.save"):
 		var file = FileAccess.open("user://power_up_data.save", FileAccess.READ)
 		power_ups =file.get_var()
-		
 		file.close()
 	else: 
 		power_ups ={}
+	slow_motion = power_ups.get("slow_motion",0)
+	sheild = power_ups.get("shield", 0)
+	double_jump =power_ups.get("double_jump" ,0)
+	
 func save_power_ups():
 	var file = FileAccess.open("user://power_up_data.save", FileAccess.WRITE)
 	file.store_var(power_ups)

@@ -1,6 +1,11 @@
-[gd_scene format=3 uid="uid://1l65lpkya2ar"]
+[gd_scene load_steps=3 format=3 uid="uid://1l65lpkya2ar"]
+
+[ext_resource type="Script" uid="uid://d7hmcjgslvkr" path="res://scenes/story_mode_rotation.gd" id="1_bw2q4"]
+[ext_resource type="PackedScene" uid="uid://btvm1y7s50l44" path="res://scenes/rotation_l_1.tscn" id="2_8n1cj"]
 
 [node name="Story mode rotation" type="Node2D"]
+script = ExtResource("1_bw2q4")
+scene = ExtResource("2_8n1cj")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -41,20 +46,29 @@ theme_override_font_sizes/font_size = 30
 text = "Level 2"
 
 [node name="Button3" type="Button" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
 text = "Level 3"
 
 [node name="Button4" type="Button" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
 text = "Level 4"
 
 [node name="Button5" type="Button" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
 text = "Level 5"
+
+[connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button5" to="." method="_on_button_5_pressed"]

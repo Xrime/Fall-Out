@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@export var rotation_speed : = 10.0
+@export var rotation_speed : = 2.0
 @onready var label = $player/RichTextLabel
 @export var storyscene :PackedScene
 
