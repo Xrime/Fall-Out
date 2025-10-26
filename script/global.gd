@@ -15,6 +15,9 @@ var in_game_coin_count = 0
 var using_slow_power_up = false
 var using_double_jump = false
 var using_shield = false
+var slow_motion = power_ups.get("slow_motion" ,0)
+var sheild = power_ups.get("sheild" , 0)
+var double_jump = power_ups.get("double_jump" ,0)
 
 #mode specified
 var Puzzle_mode = false
@@ -71,6 +74,7 @@ func load_power_ups():
 	if FileAccess.file_exists("user://power_up_data.save"):
 		var file = FileAccess.open("user://power_up_data.save", FileAccess.READ)
 		power_ups =file.get_var()
+		
 		file.close()
 	else: 
 		power_ups ={}

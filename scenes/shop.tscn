@@ -1,0 +1,75 @@
+[gd_scene load_steps=2 format=3 uid="uid://dypww2c7u2x2n"]
+
+[ext_resource type="Script" uid="uid://cetjg04yca8e" path="res://script/shop.gd" id="1_lx5au"]
+
+[node name="shop" type="Node2D"]
+script = ExtResource("1_lx5au")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1299.0
+offset_bottom = 733.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.686275, 0.768627, 0.32549, 0.27451)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -50.5
+offset_right = 56.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemContainer" type="GridContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="ItemButtinn" type="Button" parent="Control/VBoxContainer/ItemContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "Slow  Movent"
+
+[node name="ItemButton2" type="Button" parent="Control/VBoxContainer/ItemContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Shield
+"
+
+[node name="ItemButton3" type="Button" parent="Control/VBoxContainer/ItemContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Double Jump
+"
+
+[node name="coin label" type="Label" parent="Control"]
+offset_left = 1134.0
+offset_top = 5.0
+offset_right = 1276.0
+offset_bottom = 54.0
+
+[node name="cancel button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1149.0
+offset_top = 319.0
+offset_right = 1225.0
+offset_bottom = 350.0
+text = "Back"
+
+[connection signal="pressed" from="Control/VBoxContainer/ItemContainer/ItemButtinn" to="." method="_on_item_buttinn_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/ItemContainer/ItemButton2" to="." method="_on_item_button_2_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/ItemContainer/ItemButton3" to="." method="_on_item_button_3_pressed"]
+[connection signal="pressed" from="Control/cancel button" to="." method="_on_cancel_button_pressed"]
