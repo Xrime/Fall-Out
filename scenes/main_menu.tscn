@@ -124,6 +124,7 @@ bbcode_enabled = true
 text = "Double jump"
 
 [node name="cancel button" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 1140.0
 offset_top = 635.0
 offset_right = 1216.0

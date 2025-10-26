@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://1l65lpkya2ar"]
+[gd_scene load_steps=4 format=3 uid="uid://1l65lpkya2ar"]
 
 [ext_resource type="Script" uid="uid://d7hmcjgslvkr" path="res://scenes/story_mode_rotation.gd" id="1_bw2q4"]
 [ext_resource type="PackedScene" uid="uid://btvm1y7s50l44" path="res://scenes/rotation_l_1.tscn" id="2_8n1cj"]
+[ext_resource type="PackedScene" uid="uid://d1p7kyy43lsly" path="res://scenes/rotation_mode_l_5.tscn" id="3_8t7oj"]
 
 [node name="Story mode rotation" type="Node2D"]
 script = ExtResource("1_bw2q4")
 scene = ExtResource("2_8n1cj")
+scene1 = ExtResource("3_8t7oj")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

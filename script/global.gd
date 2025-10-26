@@ -34,8 +34,9 @@ var oxygen = 100
 func _ready() -> void:
 	load_coins()
 	load_power_ups()
+	load_exp()
 	if space_mode:
-		gravity =200
+		gravity = -1
 		
 
 func  add_coin(amount : int):
@@ -85,4 +86,56 @@ func save_power_ups():
 	var file = FileAccess.open("user://power_up_data.save", FileAccess.WRITE)
 	file.store_var(power_ups)
 	file.close()
+	
+var win =false
+var loss =false
+var level = 0
+var mode = ""
+var exp
+	
+func  add_exp(amount :int):
+	exp +=amount
+	save_exp()
+func save_exp():
+	var file = FileAccess.open("user://exp_data.save" , FileAccess.WRITE)
+	file.store_var(exp)
+	file.close()
+	
+func load_exp():
+	if FileAccess.file_exists("user://exp_data.save" ):
+		var file = FileAccess.open("user://exp_data.save", FileAccess.READ)
+		exp = file.get_var()
+		file.close()
+	else :
+		exp =0
+	
+func _process(delta: float) -> void:
+	if level==1 and mode=="puzzle" and win==true :
+		add_exp(100)
+		add_coin(10)
+	elif level==2 and mode=="puzzle" and win ==true:
+		add_exp(200)
+		add_coin(20)
+	elif level==1 and mode=="space" and win==true:
+		add_exp(300)
+		add_coin(30)
+	elif  level == 2 and mode == "space" and win==true:
+		add_exp(400)
+		add_coin(40)
+	elif  level == 1 and mode =="spinning" and win == true:
+		add_exp(500)
+		add_coin(50)
+	elif level == 2 and mode =="spinning" and win == true:
+		add_exp(600)
+		add_coin(60)
+	elif mode == "exploding" and win == false:
+		add_exp(1000)
+		add_coin(100)
+	else:
+		add_exp(50)
+		add_coin(5)
+	
+	
+	
+	
 	

@@ -462,6 +462,6 @@ animations = [{
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_j5nfe")
-frame_progress = 0.431715
+frame_progress = 0.736013
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

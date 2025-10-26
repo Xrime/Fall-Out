@@ -5,6 +5,7 @@ extends Node2D
 @export var storyscene :PackedScene
 
 func _ready() -> void:
+	Global.win = false
 	var fragile_list =[]
 	for child in get_children():
 		if child is StaticBody2D:
@@ -12,7 +13,11 @@ func _ready() -> void:
 			fragile_list.append(child)
 	Global.fragile_tilemaps =fragile_list
 func _on_exitarea_body_entered(body: Node2D) -> void:
+	Global.win = true
+	Global.mode = "spinning"
+	Global.level = 2
 	print("Enter")
+	get_tree().set_meta("scene5",get_tree().current_scene.scene_file_path)
 	get_tree().change_scene_to_packed(storyscene)
 func _process(delta: float) -> void:
 	rotation_degrees += rotation_speed*delta

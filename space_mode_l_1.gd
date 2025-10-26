@@ -4,7 +4,8 @@ extends Node2D
 @export var storyscene :PackedScene
 
 func _ready() -> void:
-	Global.space_mode= true
+	Global.win = false
+	Global.gravity=-1
 	Global.is_oxygen =true
 	var fragile_list =[]
 	for child in get_children():
@@ -14,7 +15,11 @@ func _ready() -> void:
 	Global.fragile_tilemaps =fragile_list
 	
 func _on_exitarea_body_entered(body: Node2D) -> void:
+	Global.win = true
+	Global.level=1
+	Global.mode="space"
 	print("Enter")
+	get_tree().set_meta("scene6",get_tree().current_scene.scene_file_path)
 	get_tree().change_scene_to_packed(storyscene)
 	
 func _process(delta: float) -> void:

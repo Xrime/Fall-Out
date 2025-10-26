@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://br6he8wgskam3"]
+
+[ext_resource type="Script" uid="uid://csngxyqlb61v2" path="res://scenes/win.gd" id="1_r4oei"]
+
+[node name="Win" type="Node2D"]
+script = ExtResource("1_r4oei")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1311.0
+offset_bottom = 736.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -3.0
+offset_right = -7.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8, 0.541176, 0.490196, 0.243137)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -77.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "You win"
+
+[node name="Button2" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Replay"
+
+[node name="Button" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Nextlevel
+"

@@ -792,7 +792,7 @@ position = Vector2(354, 680)
 respawn_points = Array[Vector2]([Vector2(350, 690)])
 
 [node name="Gravity_zone" parent="." instance=ExtResource("9_ggkxk")]
-position = Vector2(323, 268)
+position = Vector2(630, 270)
 
 [node name="shield" parent="." instance=ExtResource("10_6sjk4")]
 respawn_points = Array[Vector2]([Vector2(200, 80)])
