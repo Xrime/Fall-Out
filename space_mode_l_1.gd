@@ -5,7 +5,7 @@ extends Node2D
 
 func _ready() -> void:
 	Global.win = false
-	Global.gravity=-1
+	Global.gravity=200
 	Global.is_oxygen =true
 	var fragile_list =[]
 	for child in get_children():
@@ -15,13 +15,14 @@ func _ready() -> void:
 	Global.fragile_tilemaps =fragile_list
 	
 func _on_exitarea_body_entered(body: Node2D) -> void:
-	Global.win = true
-	Global.level=1
-	Global.mode="space"
-	print("Enter")
-	get_tree().set_meta("scene6",get_tree().current_scene.scene_file_path)
-	get_tree().change_scene_to_packed(storyscene)
+	if body.name == "player": 
+		Global.win = true
+		Global.mode = "puzzle"
+		Global.level = 1
+		print("Enter")
+		get_tree().set_meta("scene2", get_tree().current_scene.scene_file_path)
+		get_tree().change_scene_to_packed(storyscene)
+
 	
 func _process(delta: float) -> void:
-	label.text="Coin :"+ str(Global.in_game_coin_count)
 	label.text ="Oxygen:" + str(int(Global.oxygen))

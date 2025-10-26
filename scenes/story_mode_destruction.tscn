@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyvap137hui2a"]
+[gd_scene load_steps=4 format=3 uid="uid://cyvap137hui2a"]
 
 [ext_resource type="Script" uid="uid://dtvvl8lq6w6lp" path="res://scenes/story_mode_destruction.gd" id="1_mjoxn"]
+[ext_resource type="PackedScene" uid="uid://e0im1lgw7jca" path="res://scenes/destrucionn.tscn" id="2_bvphn"]
 [ext_resource type="Script" uid="uid://q1tvkoecwkwx" path="res://scenes/button.gd" id="2_yxei7"]
 
 [node name="Story mode destruction" type="Node2D"]
 script = ExtResource("1_mjoxn")
+scene = ExtResource("2_bvphn")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

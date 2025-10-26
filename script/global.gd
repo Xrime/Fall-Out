@@ -1,4 +1,13 @@
 extends Node
+var music_player: AudioStreamPlayer
+
+
+@export var default_music_path := "res://Assets/space-ambient-sci-fi-121842.mp3"
+
+
+
+func _on_music_finished() -> void:
+	music_player.play()
 
 var gravity = 980
 var speed := 200
@@ -25,18 +34,30 @@ var Spining_mode =false
 var space_mode  = false
 var underwater_mode = false
 var Exploding_platform = false
+var destruction = false
 var is_oxygen = false
-
+var reward_given = false
 
 var oxygen = 100
 
 
 func _ready() -> void:
+	reset_all()
 	load_coins()
 	load_power_ups()
 	load_exp()
 	if space_mode:
-		gravity = -1
+		gravity = 200
+	else :
+		gravity =980
+		
+	music_player = AudioStreamPlayer.new()
+	add_child(music_player)
+	music_player.autoplay = false
+	music_player.volume_db = -3
+	music_player.stream = load(default_music_path)
+	music_player.play()
+	music_player.connect("finished", Callable(self, "_on_music_finished"))
 		
 
 func  add_coin(amount : int):
@@ -110,32 +131,50 @@ func load_exp():
 		exp =0
 	
 func _process(delta: float) -> void:
-	if level==1 and mode=="puzzle" and win==true :
-		add_exp(100)
-		add_coin(10)
-	elif level==2 and mode=="puzzle" and win ==true:
-		add_exp(200)
-		add_coin(20)
-	elif level==1 and mode=="space" and win==true:
-		add_exp(300)
-		add_coin(30)
-	elif  level == 2 and mode == "space" and win==true:
-		add_exp(400)
-		add_coin(40)
-	elif  level == 1 and mode =="spinning" and win == true:
-		add_exp(500)
-		add_coin(50)
-	elif level == 2 and mode =="spinning" and win == true:
-		add_exp(600)
-		add_coin(60)
-	elif mode == "exploding" and win == false:
-		add_exp(1000)
-		add_coin(100)
-	else:
-		add_exp(50)
-		add_coin(5)
-	
-	
-	
-	
-	
+	if win and not reward_given:
+		give_reward()
+		reward_given = true
+
+
+
+func give_reward():
+	match mode:
+		"puzzle":
+			if level == 1:
+				add_exp(100)
+				add_coin(10)
+			elif level == 2:
+				add_exp(200)
+				add_coin(20)
+		"space":
+			if level == 1:
+				add_exp(300)
+				add_coin(30)
+			elif level == 2:
+				add_exp(400)
+				add_coin(40)
+		"spinning":
+			if level == 1:
+				add_exp(500)
+				add_coin(50)
+			elif level == 2:
+				add_exp(600)
+				add_coin(60)
+		"exploding":
+			if not win:
+				add_exp(1000)
+				add_coin(100)
+		_:
+			add_exp(50)
+			add_coin(5)
+
+func reset_all():
+	# Reset values
+	coins = 100
+	power_ups.clear()
+	exp = 0
+
+	# Save the resets
+	save_coins()
+	save_power_ups()
+	save_exp()

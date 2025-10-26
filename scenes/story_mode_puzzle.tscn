@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bykrpw8633pyy"]
 
 [ext_resource type="Script" uid="uid://dhmed5opnhn4f" path="res://scenes/story_mode_puzzle.gd" id="1_wtfj6"]
-[ext_resource type="PackedScene" uid="uid://c2vy0qwnppm7s" path="res://scenes/space_mode_l_1.tscn" id="2_utr3o"]
+[ext_resource type="PackedScene" uid="uid://dilu575g7o0lv" path="res://scenes/puzz_story_l_1.tscn" id="2_utr3o"]
 [ext_resource type="PackedScene" uid="uid://03nst46yymm5" path="res://scenes/puzz_story_2.tscn" id="3_vi0ss"]
 
 [node name="Story mode puzzle" type="Node2D"]

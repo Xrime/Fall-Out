@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhot72qtnl8t4"]
+[gd_scene load_steps=23 format=3 uid="uid://dhot72qtnl8t4"]
 
 [ext_resource type="Script" uid="uid://biqbci25ivvtr" path="res://script/player.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://b3algjrlt5ch0" path="res://scenes/camera_2d.gd" id="2_g2els"]
@@ -8,6 +8,18 @@
 [ext_resource type="Texture2D" uid="uid://cqf8lj7wqnkbx" path="res://Assets/Space Man Character/Space Man Character/Jump_002.png" id="6_d2wvv"]
 [ext_resource type="Texture2D" uid="uid://dtb7qdfjq4mmy" path="res://Assets/Space Man Character/Space Man Character/Jump_004.png" id="7_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://qlj6hsphojnv" path="res://Assets/Space Man Character/Space Man Character/Jump_005.png" id="8_jej6c"]
+[ext_resource type="Texture2D" uid="uid://c8kxl1n0pow87" path="res://Assets/Space Man Character/Space Man Character/Idle_000.png" id="9_60mlk"]
+[ext_resource type="Texture2D" uid="uid://dqhl3mu0ulg0c" path="res://Assets/Space Man Character/Space Man Character/Idle_002.png" id="10_i4ail"]
+[ext_resource type="Texture2D" uid="uid://5nqiqq0otd3a" path="res://Assets/Space Man Character/Space Man Character/Idle_001.png" id="11_a38lo"]
+[ext_resource type="Texture2D" uid="uid://wukt240cvl3v" path="res://Assets/Space Man Character/Space Man Character/Idle_003.png" id="12_4ni07"]
+[ext_resource type="Texture2D" uid="uid://2qj60x5ojg78" path="res://Assets/Space Man Character/Space Man Character/Idle_004.png" id="13_l71n6"]
+[ext_resource type="Texture2D" uid="uid://d3m0etb0udogj" path="res://Assets/Space Man Character/Space Man Character/Idle_005.png" id="14_ke2ow"]
+[ext_resource type="Texture2D" uid="uid://8k7bblgemph8" path="res://Assets/Space Man Character/Space Man Character/Run_000.png" id="15_ujl30"]
+[ext_resource type="Texture2D" uid="uid://cdl6hjkby4hqj" path="res://Assets/Space Man Character/Space Man Character/Run_001.png" id="16_31cv2"]
+[ext_resource type="Texture2D" uid="uid://c5b87a45eohhw" path="res://Assets/Space Man Character/Space Man Character/Run_002.png" id="17_pf23h"]
+[ext_resource type="Texture2D" uid="uid://diigl44yaw7nw" path="res://Assets/Space Man Character/Space Man Character/Run_003.png" id="18_dt7fs"]
+[ext_resource type="Texture2D" uid="uid://d17uc7h3hy4eo" path="res://Assets/Space Man Character/Space Man Character/Run_004.png" id="19_wqfne"]
+[ext_resource type="Texture2D" uid="uid://djcqun0mcqwm3" path="res://Assets/Space Man Character/Space Man Character/Run_005.png" id="20_wnwbv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
 
@@ -40,14 +52,56 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_60mlk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_i4ail")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_a38lo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4ni07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_l71n6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ke2ow")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_ujl30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_31cv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_pf23h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_dt7fs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_wqfne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_wnwbv")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
 }]
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_3vyb7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 6)
-shape = SubResource("CapsuleShape2D_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
@@ -58,9 +112,12 @@ limit_bottom = 720
 limit_smoothed = true
 script = ExtResource("2_g2els")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 6)
+shape = SubResource("CapsuleShape2D_g2els")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(9, 7.00001)
 scale = Vector2(0.131206, 0.114108)
 sprite_frames = SubResource("SpriteFrames_f1ej7")
-animation = &"Jump"
-frame_progress = 0.87915
+animation = &"run"

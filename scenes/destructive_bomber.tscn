@@ -1,5 +1,6 @@
-[gd_scene load_steps=67 format=3 uid="uid://bttcmmwf27t5v"]
+[gd_scene load_steps=68 format=3 uid="uid://bttcmmwf27t5v"]
 
+[ext_resource type="Script" uid="uid://do5va2tbv8i68" path="res://scenes/destructive_bomber.gd" id="1_c8wbb"]
 [ext_resource type="Texture2D" uid="uid://bppcu7fg5t4j3" path="res://Assets/Free - 2D Explosion Animations/Half Sized/explosion 2.png" id="1_ssosf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vfq6s"]
@@ -459,6 +460,7 @@ animations = [{
 }]
 
 [node name="destructive_bomber" type="Area2D"]
+script = ExtResource("1_c8wbb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c8wbb")

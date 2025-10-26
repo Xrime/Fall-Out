@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=4 uid="uid://d1p7kyy43lsly"]
+[gd_scene load_steps=17 format=4 uid="uid://d1p7kyy43lsly"]
 
 [ext_resource type="Script" uid="uid://cm3cp5e7t6et8" path="res://rotation_mode_l_1.gd" id="1_21mbf"]
+[ext_resource type="PackedScene" uid="uid://br6he8wgskam3" path="res://scenes/win.tscn" id="2_kfo7b"]
 [ext_resource type="Texture2D" uid="uid://bda7ndar7kv0s" path="res://Assets/castle_stones/castle_stones.png" id="2_mm7lp"]
 [ext_resource type="PackedScene" uid="uid://dhot72qtnl8t4" path="res://scenes/player.tscn" id="3_kfo7b"]
 [ext_resource type="PackedScene" uid="uid://b7m1kvy4y0gah" path="res://scenes/landing_paddle.tscn" id="4_sih68"]
@@ -599,6 +600,8 @@ size = Vector2(16, 20)
 
 [node name="rotation mode L5" type="Node2D"]
 script = ExtResource("1_21mbf")
+rotation_speed = 2.0
+storyscene = ExtResource("2_kfo7b")
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(1.11, 1.11)
@@ -612,13 +615,6 @@ collision_visibility_mode = 2
 
 [node name="player" parent="." instance=ExtResource("3_kfo7b")]
 position = Vector2(167, 89)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="player"]
-offset_left = 124.0
-offset_top = -86.0
-offset_right = 198.0
-offset_bottom = -46.0
-bbcode_enabled = true
 
 [node name="landing paddle" parent="." instance=ExtResource("4_sih68")]
 position = Vector2(336, 349)

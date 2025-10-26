@@ -1,5 +1,6 @@
-[gd_scene load_steps=67 format=3 uid="uid://capv4kme0bkvb"]
+[gd_scene load_steps=68 format=3 uid="uid://capv4kme0bkvb"]
 
+[ext_resource type="Script" uid="uid://ds635138uodvm" path="res://scenes/destructive_bomber_2.gd" id="1_4k6lv"]
 [ext_resource type="Texture2D" uid="uid://dync1tv6xejlh" path="res://Assets/Free - 2D Explosion Animations/Half Sized/explosion 4.png" id="1_43ehj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4k6lv"]
@@ -459,10 +460,10 @@ animations = [{
 }]
 
 [node name="destructive_bomber2" type="Area2D"]
+script = ExtResource("1_4k6lv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wies1")
-frame = 52
-frame_progress = 0.381881
+frame_progress = 0.917639
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

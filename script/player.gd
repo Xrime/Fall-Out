@@ -25,11 +25,20 @@ func _physics_process(delta: float) -> void:
 	gravity = Global.gravity
 	speed = Global.speed
 	jump_force = Global.jump_force
+	if Input.is_action_just_pressed("Slow fall"):
+		Global.using_slow_power_up = true
+	if Input.is_action_just_pressed("Double Jump"):
+		Global.using_double_jump =true
+	if Input.is_action_just_pressed("Shield"):
+		Global.using_shield = true
 	if Input.is_action_pressed("Right"):
 		position.x += speed * delta
-		$AnimatedSprite2D.play("Jump")
+		$AnimatedSprite2D.play("run")
+	else :
+		$AnimatedSprite2D.play("idle")
 	if Input.is_action_pressed("Left"):
 		position.x -= speed * delta
+		
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	else :
@@ -42,6 +51,7 @@ func _physics_process(delta: float) -> void:
 	else :
 		max_jump = 1
 	if Input.is_action_just_pressed("Up") and jump_count< max_jump:
+		$AnimatedSprite2D.play("Jump")
 		velocity.y =jump_force
 		jump_count +=1
 	# power time
@@ -108,7 +118,7 @@ func _physics_process(delta: float) -> void:
 			get_tree().set_meta("level_scene", get_tree().current_scene.scene_file_path)
 			get_tree().change_scene_to_packed(gameover_scene)
 	
-	if Global.space_mode and Global.is_oxygen:
+	if (Global.space_mode or Global.destruction) and Global.is_oxygen:
 		Global.oxygen -= delta*2
 		if Global.oxygen <= 0:
 			get_tree().set_meta("level_scene", get_tree().current_scene.scene_file_path)
